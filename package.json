@@ -1,0 +1,11 @@
+{
+  "name": "skills-create-applications-with-the-copilot-cli",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest --colors"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
