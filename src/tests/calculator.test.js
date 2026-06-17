@@ -46,4 +46,29 @@ describe('CLI calculator (integration)', () => {
     }
     expect(threw).toBe(true);
   });
+
+  // Extended operations from issue: modulo, power, sqrt
+  test('5 % 2 -> 1 (modulo)', () => {
+    expect(run('mod 5 2')).toBe('1');
+  });
+
+  test('2 ^ 3 -> 8 (power)', () => {
+    expect(run('pow 2 3')).toBe('8');
+  });
+
+  test('sqrt 16 -> 4 (square root)', () => {
+    expect(run('sqrt 16')).toBe('4');
+  });
+
+  test('sqrt negative number returns error', () => {
+    let threw = false;
+    try {
+      run('sqrt -9');
+    } catch (e) {
+      threw = true;
+      expect(e.status).not.toBe(0);
+      expect(e.stdout || e.stderr).toMatch(/square root of negative number/i);
+    }
+    expect(threw).toBe(true);
+  });
 });
